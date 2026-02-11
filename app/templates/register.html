@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>📝 Register</h2>
+<form method="POST" autocomplete="off">
+<input type="text" style="display:none">
+<input type="password" style="display:none">
+
+    {{ form.hidden_tag() }}
+    <div class="card">
+        {{ form.username.label }}<br>
+        {{ form.username(class="input") }}<br><br>
+
+        {{ form.email.label }}<br>
+        {{ form.email(class="input") }}<br><br>
+
+        {{ form.password.label }}<br>
+        {{ form.password(class="input", autocomplete="new-password") }}<br><br>
+
+        {{ form.submit(class="button") }}
+        <p>Already registered? <a href="{{ url_for('main.login') }}">Login</a></p>
+    </div>
+</form>
+{% endblock %}

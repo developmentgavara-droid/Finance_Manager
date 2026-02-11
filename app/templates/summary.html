@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>📅 Monthly Summary</h2>
+
+<form method="GET">
+    Month: <input type="number" name="month" min="1" max="12" required>
+    Year: <input type="number" name="year" required>
+    <button type="submit">View</button>
+</form>
+
+{% if income is defined %}
+<div class="card">
+    <h3>Income: ₹ {{ income }}</h3>
+    <h3>Expense: ₹ {{ expense }}</h3>
+    <h3>Balance: ₹ {{ income - expense }}</h3>
+</div>
+{% endif %}
+
+{% endblock %}

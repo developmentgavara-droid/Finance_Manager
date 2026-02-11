@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#eef2f7,#d9e4f5);
+    transition:0.3s;
+}
+
+.dark{
+    background:#0f172a;
+    color:#e2e8f0;
+}
+
+/* NAVBAR */
+nav{
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(12px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+}
+
+.dark nav{
+    background:#1e293b;
+}
+
+nav a{
+    text-decoration:none;
+    margin:0 10px;
+    color:#334155;
+    font-weight:500;
+}
+
+.dark nav a{ color:#e2e8f0; }
+
+.container{
+    padding:30px;
+}
+
+/* CARDS */
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin:15px 0;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.dark .card{
+    background:#1e293b;
+}
+
+/* INPUTS */
+.input, input, select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border-radius:8px;
+    border:1px solid #cbd5e1;
+    outline:none;
+}
+
+/* BUTTONS */
+.button, button{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    background:linear-gradient(45deg,#4CAF50,#22c55e);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:500;
+}
+
+.button:hover, button:hover{
+    opacity:0.9;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    text-align:left;
+}
+
+th{
+    background:#f1f5f9;
+}
+
+.dark th{
+    background:#334155;
+}
+
+/* FLASH */
+.flash{
+    background:#fde68a;
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+td:nth-child(2){
+    font-weight:600;
+}
+td:nth-child(2):contains("income"){ color:green; }
+td:nth-child(2):contains("expense"){ color:red; }

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>➕ Add Transaction</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="card">
+        {{ form.amount.label }}<br>
+        {{ form.amount(class="input") }}<br><br>
+
+        {{ form.type.label }}<br>
+        {{ form.type(class="input") }}<br><br>
+        {{ form.category.label }}<br>      
+        {{ form.category(class="input") }}<br><br>
+        {{ form.description.label }}<br>
+        {{ form.description(class="input") }}<br><br>
+
+        {{ form.date.label }}<br>
+        {{ form.date(class="input") }}<br><br>
+
+        {{ form.submit(class="button") }}
+    </div>
+</form>
+{% endblock %}

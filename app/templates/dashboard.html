@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>📊 Dashboard Overview</h2>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
+    <div class="card">
+        <h3>💵 Total Income</h3>
+        <h2>₹ {{ income }}</h2>
+    </div>
+    <div class="card">
+        <h3>💸 Total Expense</h3>
+        <h2>₹ {{ expense }}</h2>
+    </div>
+    <div class="card">
+        <h3>💰 Balance</h3>
+        <h2>₹ {{ income - expense }}</h2>
+    </div>
+</div>
+
+<h3 style="margin-top:25px;">Recent Transactions</h3>
+<div class="card">
+<table>
+<tr>
+<th>Amount</th><th>Type</th><th>Category</th><th>Description</th><th>Date</th>
+</tr>
+{% for t in transactions %}
+<tr>
+<td>₹ {{ t.amount }}</td>
+
+<td>
+    {% if t.type == 'income' %}
+        <span style="color:green;font-weight:600;">{{ t.type }}</span>
+    {% else %}
+        <span style="color:red;font-weight:600;">{{ t.type }}</span>
+    {% endif %}
+</td>
+<td>{{ t.category.name }}</td>
+
+<td>{{ t.description }}</td>
+<td>{{ t.date }}</td>
+
+<td>
+    <a href="/edit/{{ t.id }}">✏️</a>
+    <a href="/delete/{{ t.id }}" onclick="return confirm('Delete this transaction?')">🗑️</a>
+</td>
+</tr>
+{% endfor %}
+
+</table>
+</div>
+
+<canvas id="chart"></canvas>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}
+
