@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>💰 Finance Manager</title>
@@ -6,7 +6,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <nav>
+    {% if current_user.is_authenticated %}
+<nav>
     <h2>💰 Finance Manager</h2>
     <div>
         <a href="{{ url_for('main.dashboard') }}">Dashboard</a>
@@ -17,6 +18,7 @@
         <button onclick="toggleTheme()">🌙</button>
     </div>
 </nav>
+{% endif %}
 
     <div class="container">
         {% with messages = get_flashed_messages() %}
